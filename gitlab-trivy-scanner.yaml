@@ -1,0 +1,17 @@
+scan_with_trivy:
+    tags:
+        - trivy
+    stage: scans
+    image: harbor.xxxxxxxxx.xxx/xxxx/trivycustom@sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    before_script:
+        - echo "Starting vulnerability scan with Trivy!"
+    script:
+        # - scan_dockercompose.sh
+        # - scan_dockerfile.sh
+    after_script:
+        - echo "Scanner completed."
+    artifacts:
+        when: always
+        paths:
+        - report.zip
+        expire_in: 1 week

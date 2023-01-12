@@ -52,6 +52,15 @@ Put html temlate in root
 cp /app/html.tpl /
 ```
 
+Create file **/etc/docker/daemon.json** with content below  
+```
+root@5e97e8cba829:/# cat << EOF > /etc/docker/daemon.json
+> {"storage-driver": "vfs"}
+> EOF
+root@5e97e8cba829:/# cat /etc/docker/daemon.json 
+{"storage-driver": "vfs"}
+```
+
 Do **NOT** close this terminal, open another one, and get the container ID  
 ```
 docker ps
